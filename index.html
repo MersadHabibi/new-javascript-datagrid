@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="table-container">
+        <button class="clear-all-filters">پاک کردن همه فیلترها</button>
+
+        <table id="resizable-table">
+          <thead>
+            <tr>
+              <th
+                class="select-th"
+                style="width: 30px !important; min-width: 0px !important">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+                <button class="column-menu-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-ellipsis-vertical">
+                    <circle cx="12" cy="12" r="1" />
+                    <circle cx="12" cy="5" r="1" />
+                    <circle cx="12" cy="19" r="1" />
+                  </svg>
+                </button>
+                <div class="column-menu">
+                  <div class="menu-item filter-column">
+                    <div class="filter-container">
+                      <div class="filter-row">
+                        <select class="filter-select">
+                          <option value="equals">برابر است با</option>
+                          <option value="not-equals">برابر نیست با</option>
+                          <option value="starts-with">شروع می‌شود با</option>
+                          <option value="contains">شامل</option>
+                          <option value="not-contains">شامل نیست</option>
+                          <option value="ends-with">پایان می‌یابد با</option>
+                          <option value="is-empty">خالی است</option>
+                          <option value="is-not-empty">خالی نیست</option>
+                        </select>
+                        <input
+                          type="text"
+                          class="filter-input"
+                          placeholder="مقدار فیلتر..." />
+                      </div>
+                      <div class="button-group">
+                        <button class="clear-filter">پاک کردن</button>
+                        <button class="apply-filter">اعمال</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="menu-separator"></div>
+                  <div class="menu-item-button menu-item hide-column">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-eye-off">
+                      <path
+                        d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                      <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                      <path
+                        d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                      <path d="m2 2 20 20" />
+                    </svg>
+                    <span>پنهان کردن ستون</span>
+                  </div>
+                  <div class="menu-separator"></div>
+                  <div class="menu-item-button menu-item show-columns">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-list-todo">
+                      <rect x="3" y="5" width="6" height="6" rx="1" />
+                      <path d="m3 17 2 2 4-4" />
+                      <path d="M13 6h8" />
+                      <path d="M13 12h8" />
+                      <path d="M13 18h8" />
+                    </svg>
+                    <span>نمایش ستون‌ها</span>
+                    <div class="submenu">
+                      <label
+                        data-id="1"
+                        class="checkbox-item"
+                        style="display: flex; gap: 8px">
+                        <div class="checkbox-wrapper">
+                          <input id="c1-13" type="checkbox" checked="true" />
+                        </div>
+                        <span>نام</span>
+                      </label>
+                      <label
+                        data-id="2"
+                        class="checkbox-item"
+                        style="display: flex; gap: 8px">
+                        <div class="checkbox-wrapper">
+                          <input id="c1-13" type="checkbox" checked="true" />
+                        </div>
+                        <span>نام</span>
+                      </label>
+                      <label
+                        data-id="3"
+                        class="checkbox-item"
+                        style="display: flex; gap: 8px">
+                        <div class="checkbox-wrapper">
+                          <input id="c1-13" type="checkbox" checked="true" />
+                        </div>
+                        <span>نام</span>
+                      </label>
+                      <label
+                        data-id="4"
+                        class="checkbox-item"
+                        style="display: flex; gap: 8px">
+                        <div class="checkbox-wrapper">
+                          <input id="c1-13" type="checkbox" checked="true" />
+                        </div>
+                        <span>نام</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <span class="sort-icon"></span>
+              </th>
+              <th data-id="1" data-sort="none">
+                <div class="header-content">
+                  <span class="handle">⋮⋮</span>
+                  <span>نام</span>
+                  <div class="resizer"></div>
+                  <button class="column-menu-button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-ellipsis-vertical">
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="12" cy="5" r="1" />
+                      <circle cx="12" cy="19" r="1" />
+                    </svg>
+                  </button>
+                  <div class="column-menu">
+                    <div class="menu-item filter-column">
+                      <div class="filter-container">
+                        <div class="filter-row">
+                          <select class="filter-select">
+                            <option value="equals">برابر است با</option>
+                            <option value="not-equals">برابر نیست با</option>
+                            <option value="starts-with">شروع می‌شود با</option>
+                            <option value="contains">شامل</option>
+                            <option value="not-contains">شامل نیست</option>
+                            <option value="ends-with">پایان می‌یابد با</option>
+                            <option value="is-empty">خالی است</option>
+                            <option value="is-not-empty">خالی نیست</option>
+                          </select>
+                          <input
+                            type="text"
+                            class="filter-input"
+                            placeholder="مقدار فیلتر..." />
+                        </div>
+                        <div class="button-group">
+                          <button class="clear-filter">پاک کردن</button>
+                          <button class="apply-filter">اعمال</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item hide-column">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-eye-off">
+                        <path
+                          d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                        <path
+                          d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                        <path d="m2 2 20 20" />
+                      </svg>
+                      <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item show-columns">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-list-todo">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <path d="m3 17 2 2 4-4" />
+                        <path d="M13 6h8" />
+                        <path d="M13 12h8" />
+                        <path d="M13 18h8" />
+                      </svg>
+                      <span>نمایش ستون‌ها</span>
+                      <div class="submenu">
+                        <label
+                          data-id="1"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="2"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="3"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="4"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="sort-icon"></span>
+                </div>
+              </th>
+              <th data-id="2" data-sort="none">
+                <div class="header-content">
+                  <span class="handle">⋮⋮</span>
+                  <span>نام</span>
+                  <div class="resizer"></div>
+                  <button class="column-menu-button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-ellipsis-vertical">
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="12" cy="5" r="1" />
+                      <circle cx="12" cy="19" r="1" />
+                    </svg>
+                  </button>
+                  <div class="column-menu">
+                    <div class="menu-item filter-column">
+                      <div class="filter-container">
+                        <div class="filter-row">
+                          <select class="filter-select">
+                            <option value="equals">برابر است با</option>
+                            <option value="not-equals">برابر نیست با</option>
+                            <option value="starts-with">شروع می‌شود با</option>
+                            <option value="contains">شامل</option>
+                            <option value="not-contains">شامل نیست</option>
+                            <option value="ends-with">پایان می‌یابد با</option>
+                            <option value="is-empty">خالی است</option>
+                            <option value="is-not-empty">خالی نیست</option>
+                          </select>
+                          <input
+                            type="text"
+                            class="filter-input"
+                            placeholder="مقدار فیلتر..." />
+                        </div>
+                        <div class="button-group">
+                          <button class="clear-filter">پاک کردن</button>
+                          <button class="apply-filter">اعمال</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item hide-column">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-eye-off">
+                        <path
+                          d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                        <path
+                          d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                        <path d="m2 2 20 20" />
+                      </svg>
+                      <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item show-columns">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-list-todo">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <path d="m3 17 2 2 4-4" />
+                        <path d="M13 6h8" />
+                        <path d="M13 12h8" />
+                        <path d="M13 18h8" />
+                      </svg>
+                      <span>نمایش ستون‌ها</span>
+                      <div class="submenu">
+                        <label
+                          data-id="1"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="2"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="3"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="4"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="sort-icon"></span>
+                </div>
+              </th>
+              <th data-id="3" data-sort="none">
+                <div class="header-content">
+                  <span class="handle">⋮⋮</span>
+                  <span>نام</span>
+                  <div class="resizer"></div>
+                  <button class="column-menu-button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-ellipsis-vertical">
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="12" cy="5" r="1" />
+                      <circle cx="12" cy="19" r="1" />
+                    </svg>
+                  </button>
+                  <div class="column-menu">
+                    <div class="menu-item filter-column">
+                      <div class="filter-container">
+                        <div class="filter-row">
+                          <select class="filter-select">
+                            <option value="equals">برابر است با</option>
+                            <option value="not-equals">برابر نیست با</option>
+                            <option value="starts-with">شروع می‌شود با</option>
+                            <option value="contains">شامل</option>
+                            <option value="not-contains">شامل نیست</option>
+                            <option value="ends-with">پایان می‌یابد با</option>
+                            <option value="is-empty">خالی است</option>
+                            <option value="is-not-empty">خالی نیست</option>
+                          </select>
+                          <input
+                            type="text"
+                            class="filter-input"
+                            placeholder="مقدار فیلتر..." />
+                        </div>
+                        <div class="button-group">
+                          <button class="clear-filter">پاک کردن</button>
+                          <button class="apply-filter">اعمال</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item hide-column">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-eye-off">
+                        <path
+                          d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                        <path
+                          d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                        <path d="m2 2 20 20" />
+                      </svg>
+                      <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item show-columns">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-list-todo">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <path d="m3 17 2 2 4-4" />
+                        <path d="M13 6h8" />
+                        <path d="M13 12h8" />
+                        <path d="M13 18h8" />
+                      </svg>
+                      <span>نمایش ستون‌ها</span>
+                      <div class="submenu">
+                        <label
+                          data-id="1"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="2"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="3"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="4"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="sort-icon"></span>
+                </div>
+              </th>
+              <th data-id="4" data-sort="none">
+                <div class="header-content">
+                  <span class="handle">⋮⋮</span>
+                  <span>نام</span>
+                  <div class="resizer"></div>
+                  <button class="column-menu-button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-ellipsis-vertical">
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="12" cy="5" r="1" />
+                      <circle cx="12" cy="19" r="1" />
+                    </svg>
+                  </button>
+                  <div class="column-menu">
+                    <div class="menu-item filter-column">
+                      <div class="filter-container">
+                        <div class="filter-row">
+                          <select class="filter-select">
+                            <option value="equals">برابر است با</option>
+                            <option value="not-equals">برابر نیست با</option>
+                            <option value="starts-with">شروع می‌شود با</option>
+                            <option value="contains">شامل</option>
+                            <option value="not-contains">شامل نیست</option>
+                            <option value="ends-with">پایان می‌یابد با</option>
+                            <option value="is-empty">خالی است</option>
+                            <option value="is-not-empty">خالی نیست</option>
+                          </select>
+                          <input
+                            type="text"
+                            class="filter-input"
+                            placeholder="مقدار فیلتر..." />
+                        </div>
+                        <div class="button-group">
+                          <button class="clear-filter">پاک کردن</button>
+                          <button class="apply-filter">اعمال</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item hide-column">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-eye-off">
+                        <path
+                          d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                        <path
+                          d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                        <path d="m2 2 20 20" />
+                      </svg>
+                      <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item show-columns">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-list-todo">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <path d="m3 17 2 2 4-4" />
+                        <path d="M13 6h8" />
+                        <path d="M13 12h8" />
+                        <path d="M13 18h8" />
+                      </svg>
+                      <span>نمایش ستون‌ها</span>
+                      <div class="submenu">
+                        <label
+                          data-id="1"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="2"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="3"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                        <label
+                          data-id="4"
+                          class="checkbox-item"
+                          style="display: flex; gap: 8px">
+                          <div class="checkbox-wrapper">
+                            <input id="c1-13" type="checkbox" checked="true" />
+                          </div>
+                          <span>نام</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="sort-icon"></span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="select-td">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+              </td>
+              <td>علی محمدی</td>
+              <td><span class="persian-number">۳۰</span></td>
+              <td>تهران</td>
+              <td>ایران</td>
+            </tr>
+            <tr>
+              <td class="select-td">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+              </td>
+              <td>اریم حسینی</td>
+              <td><span class="persian-number">۲۵</span></td>
+              <td>اصفهان</td>
+              <td>ایران</td>
+            </tr>
+            <tr>
+              <td class="select-td">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+              </td>
+              <td>e بث صصعخص د صثخ ذصثبضا کریمی</td>
+              <td><span class="persian-number">۳۵</span></td>
+              <td>شیراز</td>
+              <td>ایران</td>
+            </tr>
+            <tr>
+              <td class="select-td">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+              </td>
+              <td>پلی محمدی</td>
+              <td><span class="persian-number">۳۰</span></td>
+              <td>تهران</td>
+              <td>ایران</td>
+            </tr>
+            <tr>
+              <td class="select-td">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+              </td>
+              <td>علی محمدی</td>
+              <td><span class="persian-number">۳۰</span></td>
+              <td>تهران</td>
+              <td>ایران</td>
+            </tr>
+            <tr>
+              <td class="select-td">
+                <div>
+                  <div class="checkbox-wrapper">
+                    <input id="c1-13" type="checkbox" />
+                  </div>
+                </div>
+              </td>
+              <td>علی محمدی</td>
+              <td><span class="persian-number">۳۰</span></td>
+              <td>تهران</td>
+              <td>ایران</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>
