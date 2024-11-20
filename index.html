@@ -5,9 +5,41 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <!-- Normal table -->
+
     <div class="wrapper">
       <div class="table-container">
         <button class="clear-all-filters">پاک کردن همه فیلترها</button>
+        <div class="grouped-container">
+          <!-- TODO: add item when use grouping -->
+          <div data-id="1" class="grouped-item">
+            <svg
+              class="remove-group-button"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+            <span>علی محمدی</span>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 512 512"
+              focusable="false"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              stroke="currentColor">
+              <path d="M256 192v224h-32V192h-96L240 64l112 128z"></path>
+            </svg>
+          </div>
+        </div>
 
         <table id="resizable-table">
           <thead>
@@ -20,125 +52,6 @@
                     <input id="c1-13" type="checkbox" />
                   </div>
                 </div>
-                <button class="column-menu-button">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-ellipsis-vertical">
-                    <circle cx="12" cy="12" r="1" />
-                    <circle cx="12" cy="5" r="1" />
-                    <circle cx="12" cy="19" r="1" />
-                  </svg>
-                </button>
-                <div class="column-menu">
-                  <div class="menu-item filter-column">
-                    <div class="filter-container">
-                      <div class="filter-row">
-                        <select class="filter-select">
-                          <option value="equals">برابر است با</option>
-                          <option value="not-equals">برابر نیست با</option>
-                          <option value="starts-with">شروع می‌شود با</option>
-                          <option value="contains">شامل</option>
-                          <option value="not-contains">شامل نیست</option>
-                          <option value="ends-with">پایان می‌یابد با</option>
-                          <option value="is-empty">خالی است</option>
-                          <option value="is-not-empty">خالی نیست</option>
-                        </select>
-                        <input
-                          type="text"
-                          class="filter-input"
-                          placeholder="مقدار فیلتر..." />
-                      </div>
-                      <div class="button-group">
-                        <button class="clear-filter">پاک کردن</button>
-                        <button class="apply-filter">اعمال</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="menu-separator"></div>
-                  <div class="menu-item-button menu-item hide-column">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-eye-off">
-                      <path
-                        d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
-                      <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
-                      <path
-                        d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
-                      <path d="m2 2 20 20" />
-                    </svg>
-                    <span>پنهان کردن ستون</span>
-                  </div>
-                  <div class="menu-separator"></div>
-                  <div class="menu-item-button menu-item show-columns">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-list-todo">
-                      <rect x="3" y="5" width="6" height="6" rx="1" />
-                      <path d="m3 17 2 2 4-4" />
-                      <path d="M13 6h8" />
-                      <path d="M13 12h8" />
-                      <path d="M13 18h8" />
-                    </svg>
-                    <span>نمایش ستون‌ها</span>
-                    <div class="submenu">
-                      <label
-                        data-id="1"
-                        class="checkbox-item"
-                        style="display: flex; gap: 8px">
-                        <div class="checkbox-wrapper">
-                          <input id="c1-13" type="checkbox" checked="true" />
-                        </div>
-                        <span>نام</span>
-                      </label>
-                      <label
-                        data-id="2"
-                        class="checkbox-item"
-                        style="display: flex; gap: 8px">
-                        <div class="checkbox-wrapper">
-                          <input id="c1-13" type="checkbox" checked="true" />
-                        </div>
-                        <span>نام</span>
-                      </label>
-                      <label
-                        data-id="3"
-                        class="checkbox-item"
-                        style="display: flex; gap: 8px">
-                        <div class="checkbox-wrapper">
-                          <input id="c1-13" type="checkbox" checked="true" />
-                        </div>
-                        <span>نام</span>
-                      </label>
-                      <label
-                        data-id="4"
-                        class="checkbox-item"
-                        style="display: flex; gap: 8px">
-                        <div class="checkbox-wrapper">
-                          <input id="c1-13" type="checkbox" checked="true" />
-                        </div>
-                        <span>نام</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <span class="sort-icon"></span>
               </th>
               <th data-id="1" data-sort="none">
                 <div class="header-content">
@@ -161,8 +74,21 @@
                     </svg>
                   </button>
                   <div class="column-menu">
-                    <div class="menu-item filter-column">
-                      <div class="filter-container">
+                    <div class="menu-item-button filter-menu menu-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-filter">
+                        <polygon
+                          points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                      </svg>
+                      <span>فیلترها</span>
+                      <div class="filter-container filter-submenu">
                         <div class="filter-row">
                           <select class="filter-select">
                             <option value="equals">برابر است با</option>
@@ -180,8 +106,41 @@
                             placeholder="مقدار فیلتر..." />
                         </div>
                         <div class="button-group">
-                          <button class="clear-filter">پاک کردن</button>
-                          <button class="apply-filter">اعمال</button>
+                          <button class="clear-filter">
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-filter-x">
+                              <path
+                                d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055"></path>
+                              <path d="m22 3-5 5"></path>
+                              <path d="m17 3 5 5"></path>
+                            </svg>
+                            <span>پاک کردن</span>
+                          </button>
+                          <button class="apply-filter">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="15"
+                              height="15"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-filter">
+                              <polygon
+                                points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                            </svg>
+                            <span>اعمال</span>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -204,6 +163,24 @@
                         <path d="m2 2 20 20" />
                       </svg>
                       <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item group-by">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-layout-grid">
+                        <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                        <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                      </svg>
+                      <span>گروه‌بندی براساس این ستون</span>
                     </div>
                     <div class="menu-separator"></div>
                     <div class="menu-item-button menu-item show-columns">
@@ -263,7 +240,59 @@
                       </div>
                     </div>
                   </div>
-                  <span class="sort-icon"></span>
+                  <span class="sort-icon">
+                    <!-- asc / desc / null-->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="null">
+                      <path d="m21 16-4 4-4-4" />
+                      <path d="M17 20V4" />
+                      <path d="m3 8 4-4 4 4" />
+                      <path d="M7 4v16" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="asc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h4" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h10" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="desc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h10" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h4" />
+                    </svg>
+                  </span>
                 </div>
               </th>
               <th data-id="2" data-sort="none">
@@ -287,8 +316,21 @@
                     </svg>
                   </button>
                   <div class="column-menu">
-                    <div class="menu-item filter-column">
-                      <div class="filter-container">
+                    <div class="menu-item-button filter-menu menu-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-filter">
+                        <polygon
+                          points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                      </svg>
+                      <span>فیلترها</span>
+                      <div class="filter-container filter-submenu">
                         <div class="filter-row">
                           <select class="filter-select">
                             <option value="equals">برابر است با</option>
@@ -330,6 +372,24 @@
                         <path d="m2 2 20 20" />
                       </svg>
                       <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item group-by">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-layout-grid">
+                        <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                        <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                      </svg>
+                      <span>گروه‌بندی براساس این ستون</span>
                     </div>
                     <div class="menu-separator"></div>
                     <div class="menu-item-button menu-item show-columns">
@@ -389,7 +449,59 @@
                       </div>
                     </div>
                   </div>
-                  <span class="sort-icon"></span>
+                  <span class="sort-icon">
+                    <!-- asc / desc / null-->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="null">
+                      <path d="m21 16-4 4-4-4" />
+                      <path d="M17 20V4" />
+                      <path d="m3 8 4-4 4 4" />
+                      <path d="M7 4v16" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="asc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h4" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h10" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="desc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h10" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h4" />
+                    </svg>
+                  </span>
                 </div>
               </th>
               <th data-id="3" data-sort="none">
@@ -413,8 +525,21 @@
                     </svg>
                   </button>
                   <div class="column-menu">
-                    <div class="menu-item filter-column">
-                      <div class="filter-container">
+                    <div class="menu-item-button filter-menu menu-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-filter">
+                        <polygon
+                          points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                      </svg>
+                      <span>فیلترها</span>
+                      <div class="filter-container filter-submenu">
                         <div class="filter-row">
                           <select class="filter-select">
                             <option value="equals">برابر است با</option>
@@ -456,6 +581,24 @@
                         <path d="m2 2 20 20" />
                       </svg>
                       <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item group-by">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-layout-grid">
+                        <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                        <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                      </svg>
+                      <span>گروه‌بندی براساس این ستون</span>
                     </div>
                     <div class="menu-separator"></div>
                     <div class="menu-item-button menu-item show-columns">
@@ -515,7 +658,59 @@
                       </div>
                     </div>
                   </div>
-                  <span class="sort-icon"></span>
+                  <span class="sort-icon">
+                    <!-- asc / desc / null-->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="null">
+                      <path d="m21 16-4 4-4-4" />
+                      <path d="M17 20V4" />
+                      <path d="m3 8 4-4 4 4" />
+                      <path d="M7 4v16" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="asc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h4" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h10" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="desc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h10" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h4" />
+                    </svg>
+                  </span>
                 </div>
               </th>
               <th data-id="4" data-sort="none">
@@ -539,8 +734,21 @@
                     </svg>
                   </button>
                   <div class="column-menu">
-                    <div class="menu-item filter-column">
-                      <div class="filter-container">
+                    <div class="menu-item-button filter-menu menu-item">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-filter">
+                        <polygon
+                          points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                      </svg>
+                      <span>فیلترها</span>
+                      <div class="filter-container filter-submenu">
                         <div class="filter-row">
                           <select class="filter-select">
                             <option value="equals">برابر است با</option>
@@ -582,6 +790,24 @@
                         <path d="m2 2 20 20" />
                       </svg>
                       <span>پنهان کردن ستون</span>
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item-button menu-item group-by">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-layout-grid">
+                        <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                        <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                        <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                      </svg>
+                      <span>گروه‌بندی براساس این ستون</span>
                     </div>
                     <div class="menu-separator"></div>
                     <div class="menu-item-button menu-item show-columns">
@@ -641,7 +867,59 @@
                       </div>
                     </div>
                   </div>
-                  <span class="sort-icon"></span>
+                  <span class="sort-icon">
+                    <!-- asc / desc / null-->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="null">
+                      <path d="m21 16-4 4-4-4" />
+                      <path d="M17 20V4" />
+                      <path d="m3 8 4-4 4 4" />
+                      <path d="M7 4v16" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="asc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h4" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h10" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="desc">
+                      <path d="m3 16 4 4 4-4" />
+                      <path d="M7 20V4" />
+                      <path d="M11 4h10" />
+                      <path d="M11 8h7" />
+                      <path d="M11 12h4" />
+                    </svg>
+                  </span>
                 </div>
               </th>
             </tr>
@@ -727,6 +1005,44 @@
             </tr>
           </tbody>
         </table>
+        <div class="table-footer">
+          <div></div>
+          <div class="pagination">
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-right">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-left">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 

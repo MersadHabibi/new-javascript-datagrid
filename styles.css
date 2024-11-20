@@ -135,6 +135,7 @@ body {
   overflow-x: visible;
   height: fit-content;
   max-width: 100%;
+  color: #212121;
 }
 
 .table-container {
@@ -154,6 +155,7 @@ table {
   table-layout: fixed;
   position: relative;
   overflow-y: visible !important;
+  margin-bottom: 0;
 }
 
 th {
@@ -347,10 +349,11 @@ th[data-sort="desc"] .sort-icon::after {
 }
 
 .column-menu-button svg {
-  height: 25px;
+  height: 20px;
   /* width: 100%; */
   /* width: auto; */
   /* object-fit: cover; */
+  color: #404040;
 }
 
 .column-menu {
@@ -460,9 +463,11 @@ th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column) .submenu {
 .filter-container {
   display: flex;
   gap: 8px;
-  padding: 8px 12px;
+  padding: 12px;
   flex-direction: column;
-  width: 100%;
+  width: 250px;
+  border-radius: 2px;
+  cursor: auto;
 }
 
 .filter-row {
@@ -470,7 +475,6 @@ th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column) .submenu {
   flex-direction: column;
   gap: 8px;
   align-items: center;
-  padding-top: 2px;
 }
 
 .filter-input {
@@ -494,6 +498,7 @@ th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column) .submenu {
   font-family: inherit;
   min-width: 120px;
   width: 100%;
+  background: #f5f5f5;
 }
 
 .menu-item.filter-column {
@@ -501,10 +506,14 @@ th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column) .submenu {
 }
 
 .apply-filter {
+  gap: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #2196f3;
   color: white;
   border: none;
-  padding: 6px 6px;
+  padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
   font-family: inherit;
@@ -516,7 +525,11 @@ th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column) .submenu {
 }
 
 .clear-filter {
-  padding: 6px 6px;
+  gap: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
   background: #f44336;
   color: white;
   border: none;
@@ -579,4 +592,145 @@ th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column) .submenu {
   /* justify-content: flex-end; */
 }
 
+.filter-menu:hover .filter-submenu {
+  display: flex;
+}
+
+.filter-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+th:not(.hidden-column):last-of-type .filter-submenu,
+th:not(.hidden-column):nth-last-child(2):has(+ th.hidden-column)
+  .filter-submenu {
+  right: auto;
+  left: 100%;
+}
+
 /* Grouping */
+
+.grouped-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+.grouped-container .grouped-item {
+  cursor: pointer;
+  border: solid 1px #bbc1e1;
+  background: #f5f5f5;
+  padding: 3px 10px;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  justify-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  color: #404040;
+}
+
+.grouped-container .grouped-item:hover {
+  background: #f0f0f0;
+}
+
+.grouped-container .grouped-item .remove-group-button:hover {
+  color: #000;
+}
+
+.group-header {
+  background: #f5f5f5;
+}
+
+.group-header .group-header-content {
+  display: flex;
+  align-items: center;
+  color: #212121;
+  gap: 10px;
+}
+
+.group-toggle {
+  color: #6f6f6f;
+  font-size: 13px;
+}
+
+.group-spacer {
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+}
+
+/* Sort icon */
+
+.sort-icon svg {
+  color: #999;
+}
+
+.sort-icon .asc {
+  color: #2a7ed1;
+  display: none;
+}
+
+.sort-icon .desc {
+  color: #2a7ed1;
+  display: none;
+}
+
+.sort-icon svg:not(.asc, .desc) {
+  display: block;
+}
+
+.sort-icon.asc svg.asc {
+  display: block;
+}
+
+.sort-icon.desc svg.desc {
+  display: block;
+}
+
+.sort-icon.asc svg.null,
+.sort-icon.desc svg.null {
+  display: none;
+}
+
+/* Footer */
+
+.table-footer {
+  width: 100%;
+  height: 45px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination > button {
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: solid 1px #ddd;
+  cursor: pointer;
+}
+
+.pagination > button:hover {
+  background-color: #f5f5f5;
+}

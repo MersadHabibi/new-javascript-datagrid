@@ -12,7 +12,7 @@ function createTable() {
 
     // Sorting event
     header.addEventListener("click", (e) => {
-      sortingHandler(e, header);
+      sortingHandler(e, header.dataset.id);
     });
 
     // Set default width for columns
@@ -68,9 +68,8 @@ function createTable() {
   }
 
   function stopResize() {
-    console.log(draggingCol.dataset.id);
-
     // TODO: make request when resize {id: string, size: string}
+    console.log(draggingCol.dataset.id, draggingCol.style.width);
     localStorage.setItem(
       `size-${draggingCol.dataset.id}`,
       draggingCol.style.width
@@ -106,8 +105,8 @@ function createTable() {
     if (draggedHeader) {
       const dragOverHeader = table.querySelector("th.drag-over");
       if (dragOverHeader) {
-        console.log(draggedHeader.dataset.id, dragOverHeader.dataset.id);
         // TODO: make request when drag end {id: string, target-id: string}
+        console.log(draggedHeader.dataset.id, dragOverHeader.dataset.id);
         // id = draggedHeader.dataset.id
         // target-id = dragOverHeader.dataset.id
       }
@@ -123,7 +122,7 @@ function createTable() {
 
   // Sorting functions
 
-  function sortingHandler(e, header) {
+  function sortingHandler(e, id) {
     // Ignore click if it's on handle, resizer, filter-badge, select-th, menu
     if (
       e.target.classList.contains("handle") ||
@@ -137,9 +136,10 @@ function createTable() {
     }
 
     // TODO: make request when sort {id: string}
+    console.log(id);
     // id = header.dataset.id
 
-    localStorage.setItem(`sort-${header.dataset.id}`, "asc"); // asc , desc , default
+    localStorage.setItem(`sort-${id}`, "asc"); // asc , desc , default
   }
 
   // Menu
@@ -163,6 +163,8 @@ function createTable() {
       );
       const header = button.parentElement.parentElement;
       console.log(header);
+
+      if (!header.dataset.id) return;
 
       // Open menu and close other menus when click menu button
       button.addEventListener("click", (e) => {
@@ -195,14 +197,15 @@ function createTable() {
   // Change visibility functions
 
   function changeColumnVisibility(id) {
-    console.log(id);
     // TODO: make request when change column visibility {id: string}
+    console.log(id);
   }
 
   // Filtering functions
 
   function initializeFilters() {
     const filterContainers = table.querySelectorAll(".filter-container");
+    const filterBadges = document.querySelectorAll(".filter-badge");
 
     filterContainers.forEach((container) => {
       const select = container.querySelector(".filter-select");
@@ -215,11 +218,15 @@ function createTable() {
         const filterValue = input.value;
 
         const header =
-          e.target.parentElement.parentElement.parentElement.parentElement
+          applyButton.parentElement.parentElement.parentElement.parentElement
             .parentElement.parentElement;
+
+        console.log(header);
 
         if (!filterValue) {
           clearFilter(header.dataset.id);
+
+          return;
         }
 
         applyFilter(header.dataset.id, filterType, filterValue);
@@ -228,12 +235,14 @@ function createTable() {
         container.closest(".column-menu").classList.remove("show");
       });
 
-      clearButton.addEventListener("click", () => {
+      clearButton.addEventListener("click", (e) => {
         const header =
-          e.target.parentElement.parentElement.parentElement.parentElement
+          clearButton.parentElement.parentElement.parentElement.parentElement
             .parentElement.parentElement;
 
         clearFilter(header.dataset.id);
+
+        container.closest(".column-menu").classList.remove("show");
       });
 
       // Add input shortcuts
@@ -243,10 +252,19 @@ function createTable() {
         }
       });
     });
+
+    filterBadges.forEach((badge) => {
+      badge.addEventListener("click", () => {
+        const header = badge.target.parentElement.parentElement;
+
+        clearFilter(header.dataset.id);
+      });
+    });
   }
 
   function applyFilter(id, filterType, filterValue) {
     // TODO: make request when apply filter {id: string, type: filterType,value: filterValue}
+    console.log(id, filterType, filterValue);
 
     localStorage.setItem(`filter-${id}`, {
       type: filterType,
@@ -256,12 +274,99 @@ function createTable() {
 
   function clearFilter(id) {
     // TODO: make request when remove filter {id: string}
+    console.log(id);
 
     localStorage.removeItem(`filter-${id}`);
   }
 
+  function clearAllFilters() {
+    // TODO: make request when remove all filter
+    console.log("all cleared");
+  }
+
+  // Grouping functions
+
+  function initializeGrouping() {
+    const groupByButton = document.querySelectorAll(".menu-item.group-by");
+    const groupedItems = document.querySelectorAll(
+      ".grouped-container .grouped-item"
+    );
+
+    groupByButton.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const header = btn.parentElement.parentElement.parentElement;
+
+        addGrouping(header.dataset.id);
+      });
+    });
+
+    groupedItems.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        sortingHandler(event, item.dataset.id);
+      });
+
+      item
+        .querySelector(".remove-group-button")
+        .addEventListener("click", (event) => {
+          event.stopPropagation();
+          removeGrouping(item.dataset.id);
+        });
+    });
+  }
+
+  function addGrouping(id) {
+    // TODO: make request when add grouping {id: string}
+
+    console.log(id);
+  }
+
+  function removeGrouping(id) {
+    // TODO: make request when remove grouping {id: string}
+
+    console.log(id);
+  }
+
+  // Selection
+
+  function initializeSelection() {
+    const selectAllButton = document.querySelector("table .select-th input");
+    const selectButtons = document.querySelectorAll("table .select-td input");
+
+    selectAllButton.addEventListener("click", (event) => {
+      console.log("first");
+      if (selectAllButton.checked) {
+        selectButtons.forEach((btn) => {
+          btn.checked = true;
+        });
+      } else {
+        selectButtons.forEach((btn) => {
+          btn.checked = false;
+        });
+      }
+    });
+
+    selectButtons.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        console.log("first1");
+        if (btn.checked) {
+          let isAllSelected = true;
+
+          selectButtons.forEach((selectBtn) => {
+            if (!selectBtn.checked) isAllSelected = false;
+          });
+
+          if (isAllSelected) selectAllButton.checked = true;
+        } else {
+          selectAllButton.checked = false;
+        }
+      });
+    });
+  }
+
+  initializeSelection();
   initializeMenus();
   initializeFilters();
+  initializeGrouping();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
